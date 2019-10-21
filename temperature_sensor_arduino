@@ -1,0 +1,25 @@
+int val;     //integer variable that will accept the value of temperature
+int temp=3;   // Number of port for temperature sensor reading
+int buz=2;
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin (9600);     // speed 9600 bits per sec
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+val= analogRead (temp);   
+float mv= (val/1024.0)*5000; //conversion to Celcius Degrees
+float c=mv/100; //conversion to Celcius Degrees
+Serial.print("Temperature= ");
+Serial.print(c);
+Serial.print("oC");
+Serial.println();
+if (c> 20.0){
+   tone (buz,1000);
+  }
+  else{
+   noTone(buz);
+  }
+delay (1000);
+}
