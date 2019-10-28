@@ -1,5 +1,5 @@
 int val;     //integer variable that will accept the value of temperature
-int temp=3;   // Number of port for temperature sensor reading
+int temp=3;   // Number of analog port (A3) for temperature sensor reading
 int buz=2;
 void setup() {
   // put your setup code here, to run once:
@@ -10,7 +10,7 @@ void loop() {
   // put your main code here, to run repeatedly:
 val= analogRead (temp);   
 float mv= (val/1024.0)*5000; //conversion to Celcius Degrees
-float c=mv/100; //conversion to Celcius Degrees
+float c=mv/10; //conversion to Celcius Degrees
 Serial.print("Temperature= ");
 Serial.print(c);
 Serial.print("oC");
